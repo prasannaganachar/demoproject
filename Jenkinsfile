@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage("Hello") {
       steps {
-        echo "Hello"
+        sshagent(credentials: ['pganchar-jenkins-ghapp'], ignoreMissing: true) {
+          echo "Hello"
+        }
       }
     }
   }
