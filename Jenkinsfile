@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage("Hello") {
       steps {
-        sshagent(credentials: ['pganchar-jenkins-ghapp'], ignoreMissing: true) {
+        sshagent(credentials: ['Github_ssh_user'], ignoreMissing: true) {
           echo "Hello"
           sh "rm -rf demoproject"
-          sh "git clone https://github.com/prasannaganachar/demoproject.git"
+          sh "git clone git@github.com:prasannaganachar/demoproject.git"
           echo "git hub cloned sucuessful"
-          sh "git remote set-url origin  https://github.com/prasannaganachar/demoproject.git"
+          sh "git remote set-url origin  git@github.com:prasannaganachar/demoproject.git"
           echo "git set url sucuessful"
         }
       }
