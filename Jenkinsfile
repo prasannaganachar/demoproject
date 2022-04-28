@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage("Hello") {
       steps {
-        sshagent(credentials: ['Github_ssh_user'], ignoreMissing: true) {
+        sshagent(credentials: ['pganchar-jenkins-ghapp'], ignoreMissing: true) {
           echo "Hello"
-          sh "git clone git@github.com:prasannaganachar/demoproject.git"
+          sh "git clone https://github.com/prasannaganachar/demoproject.git"
           echo "git hub cloned sucuessful"
         }
       }
