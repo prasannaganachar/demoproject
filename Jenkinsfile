@@ -7,6 +7,8 @@ pipeline {
           echo "Hello"
           sh "git clone https://github.com/prasannaganachar/demoproject.git"
           echo "git hub cloned sucuessful"
+          sh "git remote set-url origin  https://github.com/prasannaganachar/demoproject.git"
+          echo "git set url sucuessful"
         }
       }
     }
