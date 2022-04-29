@@ -1,0 +1,19 @@
+pipeline {
+  agent any
+  stages {
+    stage("Hello") {
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: ‘Github_ssh_user',usernameVariable: 'GITHUB_APP',passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {     
+            echo "Hello"
+            sh "rm -rf demoproject"
+            sh "git clone  https://github.com/prasannaganachar/demoproject.git"
+            echo "git hub cloned sucuessful"
+            sh "git remote set-url origin   https://github.com/prasannaganachar/demoproject.git"
+            echo "git set url sucuessful"
+          }
+        }
+      }
+    }
+  }
+}
