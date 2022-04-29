@@ -4,12 +4,20 @@ pipeline {
     stage("Hello") {
       steps {
         script {
-          withCredentials([usernamePassword(credentialsId: 'pganchar-jenkins-ghapp',usernameVariable: 'GITHUB_APP',passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {     
+         /* withCredentials([usernamePassword(credentialsId: 'pganchar-jenkins-ghapp',usernameVariable: 'GITHUB_APP',passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {     
             echo "Hello"
             sh "rm -rf demoproject"
             sh "git clone  https://github.com/prasannaganachar/demoproject.git"
             echo "git hub cloned sucuessful"
             sh "git remote set-url origin   https://github.com/prasannaganachar/demoproject.git"
+            echo "git set url sucuessful"
+          }*/
+          withCredentials([usernamePassword(credentialsId: 'pganchar-jenkins-ghapp',usernameVariable: 'GITHUB_APP',passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {     
+            echo "Hello"
+            sh "rm -rf demoproject"
+            sh "git clone  git@github.com:prasannaganachar/demoproject.git"
+            echo "git hub cloned sucuessful"
+            sh "git remote set-url origin  git@github.com:prasannaganachar/demoproject.git"
             echo "git set url sucuessful"
           }
         }
